@@ -1,9 +1,7 @@
 import streamlit as st
-import pandas as pd
 import numpy as np
-import pickle as pkl
 import tensorflow as tf
-from PIL import Image
+import PIL
 
 
 st.title("Chess Piece Classifier")
@@ -14,7 +12,7 @@ file = st.file_uploader('Upload an image file')
 classes = ["bishop","king","pawn","knight","rook","queen"]
 
 if file is not None:
-    img = Image.open(file)
+    img = PIL.Image.open(file)
     img = img.resize((85,85))
     img = img.convert('RGB')
     img = np.asarray(img)
